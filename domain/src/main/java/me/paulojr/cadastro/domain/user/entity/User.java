@@ -3,6 +3,7 @@ package me.paulojr.cadastro.domain.user.entity;
 import lombok.Getter;
 import me.paulojr.cadastro.domain.shared.domain.AggregateRoot;
 import me.paulojr.cadastro.domain.shared.validation.ValidationHandler;
+import me.paulojr.cadastro.domain.user.validation.UserValidator;
 
 import java.util.Objects;
 
@@ -30,6 +31,6 @@ public class User extends AggregateRoot<UserID> {
 
     @Override
     public void validate(ValidationHandler handler) {
-
+        new UserValidator(handler, this);
     }
 }
