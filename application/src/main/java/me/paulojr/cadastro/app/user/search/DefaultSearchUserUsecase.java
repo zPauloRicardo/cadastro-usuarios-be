@@ -15,7 +15,7 @@ public class DefaultSearchUserUsecase extends SearchUserUsecase {
 
     @Override
     public Pagination<SearchUserOutput> execute(SearchUserCommand anIn) {
-        final var command = new UserSearchCommand(anIn.name(), anIn.email());
+        final var command = new UserSearchCommand(anIn.name(), anIn.email(), anIn.page());
         return this.userGateway.findAll(command)
                 .map(user -> new SearchUserOutput(
                         user.getId().getValue(),
