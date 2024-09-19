@@ -12,22 +12,43 @@ public class User extends AggregateRoot<UserID> {
 
     private String name;
     private String email;
-    private String telephone;
+    private String phone;
 
-    protected User(UserID userID, String name, String email, String telephone) {
+    protected User(UserID userID, String name, String email, String phone) {
         super(userID);
-        this.name = Objects.requireNonNull(name, "Nome deve ser informado");
-        this.email = Objects.requireNonNull(email, "Email deve ser informado");
-        this.telephone = Objects.requireNonNull(telephone, "Telefone deve ser informado");
+        this.name = handleName(name);
+        this.email = handleEmail(email);
+        this.phone = handleTelephone(phone);
     }
 
-    public static User createUser(String name, String email, String telephone) {
-        return new User(null, name, email, telephone);
+    private static String handleName(String name) {
+        return Objects.requireNonNull(name, "Nome deve ser informado");
     }
 
-    public static User with(UserID id, String name, String email, String telephone) {
-        return new User(id, name, email, telephone);
+    private static String handleEmail(String email) {
+        return Objects.requireNonNull(email, "Email deve ser informado");
     }
+
+    private static String handleTelephone(String phone) {
+        return Objects.requireNonNull(phone, "Telefone deve ser informado").replaceAll("[^0-9]", "");
+    }
+
+
+
+    public static User createUser(String name, String email, String phone) {
+        return new User(null, name, email, phone);
+    }
+
+    public static User with(UserID id, String name, String email, String phone) {
+        return new User(id, name, email, phone);
+    }
+
+    public void update(String name, String email, String phone) {
+        this.name = handleName(name);
+        this.email = handleEmail(email);
+        this.phone = handleTelephone(phone);
+    }
+
 
     @Override
     public void validate(ValidationHandler handler) {

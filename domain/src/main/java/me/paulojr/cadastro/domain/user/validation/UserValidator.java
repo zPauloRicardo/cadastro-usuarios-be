@@ -25,8 +25,8 @@ public class UserValidator extends Validator {
         }
 
 
-        if (!ValidationUtils.isValidPhoneNumber(this.user.getTelephone()) &&
-                !ValidationUtils.isValidMobilePhoneNumber(this.user.getTelephone())
+        if (!ValidationUtils.isValidPhoneNumber(this.user.getPhone()) &&
+                !ValidationUtils.isValidMobilePhoneNumber(this.user.getPhone())
         ) {
             this.appendError("Telefone inválido.");
         }
