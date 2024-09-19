@@ -52,6 +52,6 @@ public class User extends AggregateRoot<UserID> {
 
     @Override
     public void validate(ValidationHandler handler) {
-        new UserValidator(handler, this);
+        new UserValidator(handler, this).validate();
     }
 }
