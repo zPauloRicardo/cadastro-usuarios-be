@@ -1,0 +1,32 @@
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: "10s"
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: America/Sao_Paulo
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.H2Dialect
+  datasource:
+    driverClassName: org.h2.Driver
+    hikari:
+      maxLifetime: '2000000'
+      poolName: SpringBootHikariCP
+      connectionTimeout: '30000'
+      idleTimeout: '30000'
+      minimumIdle: '5'
+      maximumPoolSize: '20'
+    url: jdbc:h2:mem:testdb
+    type: com.zaxxer.hikari.HikariDataSource
+    username: sa
+    password: password
+
+server:
+  port: 8091
+  shutdown: graceful
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
