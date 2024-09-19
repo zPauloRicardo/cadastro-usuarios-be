@@ -15,9 +15,11 @@ import me.paulojr.cadastro.infra.context.user.models.UserRequestBody;
 import me.paulojr.cadastro.infra.context.user.models.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
+@RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController implements UserAPI {
 

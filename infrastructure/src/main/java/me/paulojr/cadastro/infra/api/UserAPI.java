@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import me.paulojr.cadastro.domain.shared.search.Pagination;
 import me.paulojr.cadastro.infra.api.impl.ExceptionController;
 import me.paulojr.cadastro.infra.context.user.models.UserRequestBody;
@@ -15,6 +16,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+@Tag(name = "Users API", description = "API de gerenciamento de usuários.")
 @RequestMapping("/v1/user")
 public interface UserAPI {
 
