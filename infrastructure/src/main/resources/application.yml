@@ -26,6 +26,9 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     username: sa
     password: password
+  h2:
+    console:
+      enabled: true
 
 server:
   port: 8091
